@@ -1,0 +1,76 @@
+{
+	"BASE_URL": "https://verzel-store.qa-test-verzel-store.workers.dev",
+	"CARRINHO_URL": "${BASE_URL}/carrinho",
+	"API_PRODUTOS": "${BASE_URL}/api/produtos",
+	"API_PRODUTO": "${BASE_URL}/api/produto/{id}",
+	"API_CARRINHO": "${BASE_URL}/api/carrinho/calcular",
+	"API_PEDIDOS": "${BASE_URL}/api/pedidos",
+
+	"ERROS": [
+		{
+			"Status": 400,
+			"Código": "JSON_INVALIDO",
+			"Quando Acontece": "O corpo da requisição não é um objeto JSON válido."
+		},
+		{
+			"Status": 404,
+			"Código": "ROTA_NAO_ENCONTRADA",
+			"Quando Acontece": "A rota não existe."
+		},
+		{
+			"Status": 404,
+			"Código": "PRODUTO_NAO_ENCONTRADO",
+			"Quando Acontece": "Consulta de produto com id inexistente."
+		},
+		{
+			"Status": 405,
+			"Código": "METODO_NAO_PERMITIDO",
+			"Quando Acontece": "A rota existe, mas não aceita o método HTTP usado."
+		},
+		{
+			"Status": 422,
+			"Código": "ITENS_OBRIGATORIOS",
+			"Quando Acontece": "A lista de itens está ausente ou vazia."
+		},
+		{
+			"Status": 422,
+			"Código": "ITEM_INVALIDO",
+			"Quando Acontece": "Um item não é um objeto com produtoId e quantidade."
+		},
+		{
+			"Status": 422,
+			"Código": "PRODUTO_NAO_ENCONTRADO",
+			"Quando Acontece": "Um item referencia um produto inexistente."
+		},
+		{
+			"Status": 422,
+			"Código": "ITEM_DUPLICADO",
+			"Quando Acontece": "O mesmo produto aparece mais de uma vez na lista de itens."
+		},
+		{
+			"Status": 422,
+			"Código": "QUANTIDADE_INVALIDA",
+			"Quando Acontece": "A quantidade não é um número inteiro maior ou igual a 1."
+		},
+		{
+			"Status": 422,
+			"Código": "QUANTIDADE_MAXIMA_EXCEDIDA",
+			"Quando Acontece": "A quantidade de um produto é maior que 5."
+		},
+		{
+			"Status": 422,
+			"Código": "DADOS_INVALIDOS",
+			"Quando Acontece": "Um ou mais dados do cliente são inválidos. Os detalhes vêm em \"campos\"."
+		},
+		{
+			"Status": 422,
+			"Código": "CUPOM_INVALIDO",
+			"Quando Acontece": "Pedido enviado com um cupom inexistente."
+		},
+		{
+			"Status": 422,
+			"Código": "CUPOM_EXPIRADO",
+			"Quando Acontece": "Pedido enviado com um cupom fora da validade."
+		}
+	]
+}
