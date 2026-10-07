@@ -14,6 +14,7 @@ Contexto:
 @CA01 @ignore
 Esquema do Cenário: Aplicar cupom válido de 10% de desconto
   Dado que possuo 1 unidade de "<produto>" no carrinho
+  E acesso o carrinho
   E o subtotal do carrinho é de R$ "<subtotal>"
   Quando aplico o cupom "<cupom>"
   Então o desconto deve ser de R$ "<desconto>"
@@ -31,6 +32,7 @@ Esquema do Cenário: Aplicar cupom válido de 10% de desconto
 @CA02 @ignore
 Esquema do Cenário: Aplicar cupom ignorando maiúsculas, minúsculas e espaços
   Dado que possuo 1 unidade de "<produto>" no carrinho
+  E acesso o carrinho
   Quando aplico o cupom "<cupom>"
   Então o cupom "<cupom>" deve ser aplicado com sucesso
   E o desconto deve ser de R$ "<desconto>"
@@ -46,6 +48,7 @@ Esquema do Cenário: Aplicar cupom ignorando maiúsculas, minúsculas e espaços
 @CA03 @ignore
 Esquema do Cenário: Aplicar um cupom inexistente
   Dado que possuo 1 unidade de "<produto>" no carrinho
+  E acesso o carrinho
   Quando aplico o cupom "CUPOMINVALIDO"
   Então deve ser exibida a mensagem "Cupom inválido."
   E nenhum desconto deve ser aplicado
@@ -60,6 +63,7 @@ Exemplos:
 @CA04 @ignore
 Esquema do Cenário: Aplicar um cupom expirado
   Dado que possuo 1 unidade de "<produto>" no carrinho
+  E acesso o carrinho
   Quando aplico o cupom "<cupom>"
   Então deve ser exibida a mensagem "Cupom expirado."
   E nenhum desconto deve ser aplicado
@@ -74,6 +78,7 @@ Exemplos:
 @CA05 @ignore
 Esquema do Cenário: Trocar o cupom aplicado no carrinho
   Dado que possuo 1 unidade de "<produto>" no carrinho
+  E acesso o carrinho
   E aplico o cupom "<cupom>"
   Quando removo o cupom aplicado
   E aplico o cupom "<cupom_trocado>"
@@ -90,6 +95,7 @@ Exemplos:
 @CA06 @ignore
   Esquema do Cenário: Aplicar frete grátis para compras a partir de R$ 200,00
     Dado que possuo <quantidade> unidades de "<produto>" no carrinho
+    E acesso o carrinho
     Então o subtotal do carrinho deve ser de R$ "<subtotal>"
     E o frete deve ser de R$ "<frete>"
 
@@ -104,6 +110,7 @@ Exemplos:
 @CA07 @ignore
 Esquema do Cenário: Cobrar frete para compras abaixo de R$ 200,00
   Dado que possuo <quantidade> unidades de "<produto>" no carrinho
+  E acesso o carrinho
   Então o subtotal do carrinho deve ser de R$ "<subtotal>"
   E o frete deve ser de R$ "<frete>"
   E deve ser informado que faltam R$ "<faltante>" para obter frete grátis
@@ -112,13 +119,17 @@ Esquema do Cenário: Cobrar frete para compras abaixo de R$ 200,00
     | quantidade | produto             | subtotal | faltante | frete  |
     | 1          | Mochila Urbana 20L  | 100,00   | 100,00   | 19,90  |
     | 1          | Tênis Casual Urbano | 189,90   | 10,10    | 19,90  |
-    | 2          | Mochila Urbana 20L  | 200,00   | 0,00     | 0,00 |
+    | 2          | Mochila Urbana 20L  | 200,00   | 0,00     | 0,00   |
 
 # ================================================================================================================= #
 
+# Utilizados dois produtos para evitar que o BUG-001 no limite de R$ 200,00 interfira na validação deste critério.
+# Após correção do bug pode ser retirado o segundo produto e validar apenas com um produto. Os passos de acessar o site e adicionar o segundo produto podem ser removidos.
 @CA08 @ignore
 Esquema do Cenário: Manter frete grátis quando o desconto reduz o valor abaixo de R$ 200,00
   Dado que possuo <quantidade> unidades de "<produto>" no carrinho
+  E que possuo <quantidade2> unidades de "<produto2>" no carrinho
+  E acesso o carrinho
   E o subtotal do carrinho é de R$ "<subtotal>"
   Quando aplico o cupom "<cupom>"
   Então o desconto deve ser de R$ "<desconto>"
@@ -126,14 +137,15 @@ Esquema do Cenário: Manter frete grátis quando o desconto reduz o valor abaixo
   E o total do pedido deve ser de R$ "<total>"
 
   Exemplos:
-    | quantidade | produto            | subtotal | cupom       | desconto | frete | total  |
-    | 2          | Mochila Urbana 20L | 200,00   | BEMVINDO10  | 20,00    | 0,00  | 180,00 |
+    | quantidade | produto        | quantidade2 | produto2            | subtotal | cupom       | desconto | frete | total  |
+    | 3          | Boné Aba Curva | 2           | Kit 3 Pares de Meias| 209,50   | BEMVINDO10  | 20,95    | 0,00  | 188,55 |
 
 # ================================================================================================================= #
 
 @CA09 @ignore
 Esquema do Cenário: Aplicar desconto somente sobre o subtotal dos produtos
   Dado que possuo <quantidade> unidades de "<produto>" no carrinho
+  E acesso o carrinho
   E o subtotal do carrinho é de R$ "<subtotal>"
   Quando aplico o cupom "<cupom>"
   Então o desconto deve ser de R$ "<desconto>"
@@ -148,23 +160,27 @@ Esquema do Cenário: Aplicar desconto somente sobre o subtotal dos produtos
 # ================================================================================================================= #
 
 @CA10 @ignore
-Esquema do Cenário: Permitir até 5 unidades do mesmo produto
+Esquema do Cenário: Limitar a quantidade máxima de um produto no carrinho
   Dado que possuo <quantidade> unidades de "<produto>" no carrinho
-  Então a quantidade do produto deve ser "<quantidade>"
-  E deve ser exibida a mensagem "<mensagem>"
-  E o botão de adicionar ao carrinho deve ser desabilitado
+  Quando acesso o carrinho
+  Então a quantidade do produto "<produto>" deve ser "<quantidade>"
+  E deve ser exibida a mensagem de limite "<mensagem_carrinho>" para o produto "<produto>"
+  E o botão de aumentar a quantidade do produto "<produto>" deve estar desabilitado
   E o subtotal do carrinho deve ser de R$ "<subtotal>"
 
   Exemplos:
-    | quantidade | produto             | mensagem                           | subtotal |
-    | 5          | Mochila Urbana 20L  | Limite de 5 unidades por produto.  | 500,00   |
-    | 5          | Tênis Casual Urbano | Limite de 5 unidades por produto.  | 949,50   |
+    | quantidade | produto             | mensagem_carrinho                 | subtotal |
+    | 5          | Mochila Urbana 20L  | Limite de 5 unidades por produto. | 500,00   |
+    | 5          | Tênis Casual Urbano | Limite de 5 unidades por produto. | 949,50   |
 
 # ================================================================================================================= #
 
-@CA11 @ignore
+
+# A massa fixa disponível não permite provocar um cálculo que gere uma terceira casa decimal
+@CA11
 Esquema do Cenário: Exibir valores arredondados com duas casas decimais
   Dado que possuo <quantidade> unidades de "<produto>" no carrinho
+  Quando acesso o carrinho
   Quando aplico o cupom "<cupom>"
   Então o subtotal do carrinho deve ser de R$ "<subtotal>"
   E o desconto deve ser de R$ "<desconto>"

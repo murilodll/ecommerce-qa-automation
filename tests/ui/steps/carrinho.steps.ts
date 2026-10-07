@@ -15,22 +15,6 @@ async function validarSubtotal(page: Page, subtotal: string): Promise<void> {
 
 // ======================================================= GIVEN ===================================================== #
 
-Given('que acesso o site da store', async ({ page }) => {
-	const storePage = new StorePage(page);
-
-	await storePage.acessar();
-});
-
-Given(
-	'que possuo {int} unidade(s) de {string} no carrinho',
-	async ({ page }, quantidade: number, produto: string) => {
-		const storePage = new StorePage(page);
-
-		await storePage.adicionarProduto(produto, quantidade);
-		await storePage.acessarCarrinho();
-	},
-);
-
 Given('o subtotal do carrinho é de R$ {string}', async ({ page }, subtotal: string) => {
 	await validarSubtotal(page, subtotal);
 });
@@ -98,3 +82,46 @@ Then('nenhum desconto deve ser aplicado', async ({ page }) => {
 Then('o subtotal do carrinho deve ser de R$ {string}', async ({ page }, subtotal: string) => {
 	await validarSubtotal(page, subtotal);
 });
+
+Then(
+	'deve ser informado que faltam R$ {string} para obter frete grátis',
+	async ({ page }, faltante: string) => {
+		const carrinhoPage = new CarrinhoPage(page);
+
+		if (faltante === '0,00') {
+			await expect(carrinhoPage.obterAvisoFrete()).not.toBeVisible();
+			return;
+		}
+
+		await expect(carrinhoPage.obterAvisoFrete()).toHaveText(
+			`Faltam R$ ${faltante} para o frete grátis.`,
+		);
+	},
+);
+
+Then(
+	'a quantidade do produto {string} deve ser {string}',
+	async ({ page }, produto: string, quantidade: string) => {
+		const carrinhoPage = new CarrinhoPage(page);
+
+		await expect(carrinhoPage.quantidadeProduto(produto)).toHaveText(quantidade);
+	},
+);
+
+Then(
+	'deve ser exibida a mensagem de limite {string} para o produto {string}',
+	async ({ page }, mensagem: string, produto: string) => {
+		const carrinhoPage = new CarrinhoPage(page);
+
+		await expect(carrinhoPage.mensagemLimite(produto)).toHaveText(mensagem);
+	},
+);
+
+Then(
+	'o botão de aumentar a quantidade do produto {string} deve estar desabilitado',
+	async ({ page }, produto: string) => {
+		const carrinhoPage = new CarrinhoPage(page);
+
+		await expect(carrinhoPage.botaoAumentarQuantidade(produto)).toBeDisabled();
+	},
+);

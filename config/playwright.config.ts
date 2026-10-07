@@ -17,7 +17,7 @@ const testDir = defineBddConfig({
 	language: 'pt',
 	verbose: true,
 	missingSteps: 'skip-scenario',
-	tags: '@carrinho and not @ignore',
+	tags: '(@carrinho or @store) and not @ignore',
 });
 
 export default defineConfig({
@@ -25,6 +25,7 @@ export default defineConfig({
 	timeout: 180 * 1000,
 	reporter: [
 		['list'],
+		['json', { outputFile: resolve(rootDir, 'reports/playwright-results.json') }],
 		['html', { outputFolder: resolve(rootDir, 'reports/playwright-report'), open: 'never' }], // Relatório HTML Playwright
 		cucumberReporter('html', {
 			outputFile: resolve(rootDir, 'reports/cucumber-report/index.html'), // Relatório Cucumber

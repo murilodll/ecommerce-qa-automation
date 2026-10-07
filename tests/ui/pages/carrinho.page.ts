@@ -18,9 +18,7 @@ export class CarrinhoPage {
 	}
 
 	quantidadeProduto(produto: string): Locator {
-		return this.page.getByLabel(`Quantidade de ${produto}`, {
-			exact: true,
-		});
+		return this.page.locator(`output[aria-label="Quantidade de ${produto}"]`);
 	}
 
 	botaoAumentarQuantidade(produto: string): Locator {
