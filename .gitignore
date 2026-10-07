@@ -15,10 +15,11 @@ blob-report/
 .env.*
 !.env.example
 
-# Build / TypeScript
+# Build
 dist/
 build/
 *.tsbuildinfo
+src/__pycache__/
 
 # Logs
 *.log
