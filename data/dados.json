@@ -2,7 +2,7 @@
 	"BASE_URL": "https://verzel-store.qa-test-verzel-store.workers.dev",
 	"CARRINHO_URL": "${BASE_URL}/carrinho",
 	"API_PRODUTOS": "${BASE_URL}/api/produtos",
-	"API_PRODUTO": "${BASE_URL}/api/produto/{id}",
+	"API_PRODUTO": "${API_PRODUTOS}/{id}",
 	"API_CARRINHO": "${BASE_URL}/api/carrinho/calcular",
 	"API_PEDIDOS": "${BASE_URL}/api/pedidos",
 

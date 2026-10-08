@@ -1,8 +1,9 @@
 import pandas as pd
 import plotly.express as px
 import streamlit as st
-import subprocess, json, webbrowser
+import subprocess, json, webbrowser, shutil
 from gherkin_loader import carregar_features
+from api_results_loader import carregar_resultados_api
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -39,9 +40,10 @@ with col_limpar:
 
         st.rerun()
     
-tab_execucao, tab_automacao, tab_dashboard = st.tabs([
+tab_execucao, tab_automacao, tab_api,tab_dashboard = st.tabs([
     "Manuais",
     "Automáticos [Playwright]",
+    "API [Rest Assured]",
     "📊 Dashboard"
 ])
 
@@ -61,6 +63,46 @@ def carregar_resultado_automacao():
         "instavel": stats.get("flaky", 0),
         "duracao": stats.get("duration", 0),
     }
+
+def executar_testes_api(known_bugs=False):
+    maven = shutil.which("mvn") or shutil.which("mvn.cmd")
+
+    if not maven:
+        raise RuntimeError(
+            "Maven não encontrado no PATH. "
+            "Verifique a instalação e reinicie o Streamlit."
+        )
+    
+    reports_dir = Path(
+        "reports/api/known-bugs"
+        if known_bugs
+        else "reports/api"
+    )
+    reports_dir.mkdir(parents=True, exist_ok=True)
+
+    for arquivo in reports_dir.glob("TEST-*.xml"):
+        arquivo.unlink()
+
+    comando = [
+        maven,
+        "-f",
+        "tests/api/pom.xml",
+    ]
+
+    if known_bugs:
+        comando.append("-Pknown-bugs")
+
+    comando.append("test")
+
+    resultado = subprocess.run(
+        comando,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace"
+    )
+
+    return resultado
 
 with tab_execucao:
 
@@ -209,7 +251,7 @@ with tab_automacao:
           (ROOT_DIR / "reports/cucumber-report/index.html").as_uri()
       )
 
-    if st.button("▶ Executar testes"):
+    if st.button("▶ Executar testes", type="primary"):
         with st.spinner("Executando Playwright..."):
             resultado = subprocess.run(
                 ["npm", "test"],
@@ -231,9 +273,66 @@ with tab_automacao:
             language="text"
         )
 
+with tab_api:
+  st.subheader("API - REST Assured")
+
+  st.write(
+      "Executa os testes de regressão da API, "
+      "excluindo os cenários marcados como known-bug."
+  )
+  executar_bugs = st.checkbox("Executar bugs conhecidos", value=False)
+  if st.button(
+      "Executar testes API",
+      type="primary"
+  ):
+      with st.spinner("Executando testes REST Assured..."):
+          resultado = executar_testes_api(known_bugs=executar_bugs)
+
+      if executar_bugs:
+        if resultado.returncode != 0:
+            st.warning(
+                "Os bugs conhecidos foram reproduzidos."
+            )
+        else:
+            st.success(
+                "Os bugs conhecidos não foram reproduzidos. "
+                "Eles podem ter sido corrigidos."
+            )
+      else:
+        if resultado.returncode == 0:
+            st.success(
+                "Testes de API executados com sucesso."
+            )
+        else:
+            st.error(
+                "A execução dos testes de API apresentou falhas."
+            )
+
+      with st.expander("Saída da execução"):
+          st.code(
+              resultado.stdout + resultado.stderr,
+              language="text"
+          )
+  
+  reports_dir = (
+    "reports/api/known-bugs"
+    if executar_bugs
+    else "reports/api"
+  )
+
+  resultados_api = carregar_resultados_api(reports_dir)
+  if resultados_api["total"] > 0:
+    st.write(
+        f'Última execução: '
+        f'**{resultados_api["passed"]}/{resultados_api["total"]} '
+        f'testes aprovados**'
+    )
+
 
 with tab_dashboard:
   st.subheader("📊 Progresso das Execuções Manuais")
+  resultados_api = carregar_resultados_api("reports/api")
+  resultados_known_bugs = carregar_resultados_api("reports/api/known-bugs")
 
   df_counts = (
       df_exibicao['estado']
@@ -313,4 +412,81 @@ with tab_dashboard:
 
       st.progress(taxa_sucesso / 100)
 
+  st.divider()
+
+  st.subheader("API - REST Assured")
+
+  if resultados_api["total"] == 0:
+      st.info("Nenhum resultado de API encontrado.")
+  else:
+      colapi1, colapi2, colapi3, colapi4 = st.columns(4)
+
+      colapi1.metric(
+          "Executados",
+          resultados_api["total"]
+      )
+
+      colapi2.metric(
+          "Aprovados",
+          resultados_api["passed"]
+      )
+
+      colapi3.metric(
+          "Falhas",
+          resultados_api["failed"]
+      )
+
+      colapi4.metric(
+          "Tempo",
+          f'{resultados_api["duration"]:.2f}s'
+      )
+  
+  st.markdown("#### Suítes")
+
+  for suite in resultados_api["suites"]:
+    st.write(
+        f'**{suite["name"]}** — '
+        f'{suite["passed"]}/{suite["total"]} aprovados '
+        f'({suite["duration"]:.2f}s)'
+    )
+
+  st.divider()
+
+  st.markdown("#### Bugs conhecidos")
+
+  if resultados_known_bugs["total"] > 0:
+      reproduzidos = resultados_known_bugs["failed"]
+      total = resultados_known_bugs["total"]
+
+      col1, col2 = st.columns(2)
+
+      col1.metric(
+          "Cenários de reprodução",
+          total
+      )
+
+      col2.metric(
+          "Bugs reproduzidos",
+          reproduzidos
+      )
+
+      if reproduzidos == total:
+          st.warning(
+              f"{reproduzidos}/{total} cenários reproduziram "
+              "os bugs conhecidos."
+          )
+      elif reproduzidos == 0:
+          st.success(
+              "Nenhum bug conhecido foi reproduzido. "
+              "Os defeitos podem ter sido corrigidos."
+          )
+      else:
+          st.warning(
+              f"{reproduzidos}/{total} cenários ainda "
+              "reproduzem os bugs conhecidos."
+          )
+  else:
+      st.info(
+          "Os testes de bugs conhecidos ainda não foram executados."
+      )
   st.divider()
