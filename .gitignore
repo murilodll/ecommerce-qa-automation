@@ -20,6 +20,7 @@ dist/
 build/
 *.tsbuildinfo
 src/__pycache__/
+**/target/
 
 # Logs
 *.log
@@ -38,7 +39,6 @@ desktop.ini
 
 # VS Code
 .vscode/*
-!.vscode/settings.json
 
 # Temporários
 *.tmp
