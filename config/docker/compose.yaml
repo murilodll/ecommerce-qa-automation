@@ -1,0 +1,40 @@
+services:
+  qa:
+    image: ecommerce-qa-automation:latest
+
+    build:
+      context: ../..
+      dockerfile: config/docker/Dockerfile
+
+    init: true
+
+    ports:
+      - '8501:8501'
+      - '8502:8502'
+
+    environment:
+      REPORTS_BASE_URL: ${REPORTS_BASE_URL:-http://localhost:8502}
+
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:8501/_stcore/health']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+    volumes:
+      - type: bind
+        source: ../../reports
+        target: /app/reports
+
+      - type: bind
+        source: ../../data/execucoes.csv
+        target: /app/data/execucoes.csv
+
+      - type: volume
+        source: maven-cache
+        target: /root/.m2
+
+volumes:
+  maven-cache:
+    name: ecommerce-qa-maven-cache

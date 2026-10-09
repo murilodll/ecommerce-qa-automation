@@ -48,8 +48,6 @@ def renderizar_testes_manuais(arquivo_execucoes, diretorio_features):
     opcoes_radio = [valor[0] for valor in STATUS_MAP.values()]
     texto_para_int = {valor[0]: chave for chave, valor in STATUS_MAP.items()}
 
-    st.title("Suítes de Testes Manuais")
-
     col1, col2 = st.columns(2)
 
     with col1:

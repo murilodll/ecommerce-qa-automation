@@ -1,12 +1,10 @@
-import subprocess
-import webbrowser
-
+import os
 from pathlib import Path
 
 import streamlit as st
 
 from api_results_loader import carregar_resultados_api
-from runners import executar_testes_api
+from runners import executar_testes_api, executar_testes_ui, iniciar_servidor_relatorios
 from dashboard import renderizar_dashboard
 from manual_tests import (
     COLOR_MAP,
@@ -18,6 +16,15 @@ from manual_tests import (
 
 BASE_DIR = Path(__file__).resolve().parent
 ROOT_DIR = BASE_DIR.parent
+REPORTS_BASE_URL = os.getenv("REPORTS_BASE_URL", "http://localhost:8502")
+
+
+@st.cache_resource
+def obter_servidor_relatorios():
+    return iniciar_servidor_relatorios(ROOT_DIR / "reports")
+
+
+obter_servidor_relatorios()
 
 ARQUIVO_EXECUCOES = ROOT_DIR / "data" / "execucoes.csv"
 RELATORIO_PLAYWRIGHT = ROOT_DIR / "reports" / "playwright-report" / "index.html"
@@ -39,14 +46,13 @@ with col_limpar:
     if "execucao" not in st.session_state:
         st.session_state.execucao = 0
 
-    if st.button("🔄 Limpar Execução"):
-        limpar_execucao(ARQUIVO_EXECUCOES)
-
 tab_execucao, tab_automacao, tab_api, tab_dashboard = st.tabs(
     ["Manuais", "Automáticos [Playwright]", "API [Rest Assured]", "📊 Dashboard"]
 )
-
 with tab_execucao:
+    st.title("Suítes de Testes Manuais")
+    if st.button("🔄 Limpar Execução Manual"):
+        limpar_execucao(ARQUIVO_EXECUCOES)
     renderizar_testes_manuais(ARQUIVO_EXECUCOES, DIRETORIO_FEATURES)
 
 with tab_automacao:
@@ -60,36 +66,22 @@ with tab_automacao:
         st.subheader("Testes Automáticos")
 
     with colb2:
-        if st.button(
+        st.link_button(
             "📄 Abrir relatório Playwright",
-            disabled=(
-                not st.session_state.automacao_executada
-                or not RELATORIO_PLAYWRIGHT.exists()
-            ),
-        ):
-            webbrowser.open(
-                (ROOT_DIR / "reports/playwright-report/index.html").as_uri()
-            )
+            f"{REPORTS_BASE_URL}/playwright-report/index.html",
+            disabled=not RELATORIO_PLAYWRIGHT.exists(),
+        )
 
     with colb3:
-        if st.button(
+        st.link_button(
             "🥒 Abrir relatório Cucumber",
-            disabled=(
-                not st.session_state.automacao_executada
-                or not RELATORIO_CUCUMBER.exists()
-            ),
-        ):
-            webbrowser.open((ROOT_DIR / "reports/cucumber-report/index.html").as_uri())
+            f"{REPORTS_BASE_URL}/cucumber-report/index.html",
+            disabled=not RELATORIO_CUCUMBER.exists(),
+        )
 
     if st.button("▶ Executar testes", type="primary"):
         with st.spinner("Executando Playwright..."):
-            resultado = subprocess.run(
-                ["npm", "test"],
-                cwd=ROOT_DIR,
-                capture_output=True,
-                text=True,
-                shell=True,
-            )
+            resultado = executar_testes_ui(ROOT_DIR)
 
         st.session_state.automacao_executada = True
 

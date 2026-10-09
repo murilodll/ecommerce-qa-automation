@@ -20,6 +20,7 @@ acompanhamento dos resultados.
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Pré-requisitos](#pré-requisitos)
 - [Instalação](#instalação)
+- [Execução com Docker](#execução-com-docker)
 - [Execução](#execução)
 - [Execução via Linha de Comando (CLI)](#execução-via-linha-de-comando-cli)
 - [Visualização dos Relatórios](#visualização-dos-relatórios)
@@ -109,6 +110,8 @@ permaneça independente dos defeitos já identificados.
 
 ### Execução e acompanhamento
 
+- **Docker** - criação de um ambiente reproduzível contendo as dependências necessárias para execução da solução.
+- **Docker Compose** - configuração das portas, persistência dos relatórios, estado das execuções manuais e cache das dependências Maven.
 - **Python** - implementação modular da ferramenta auxiliar para
   execução e acompanhamento dos testes.
 - **Streamlit** - interface para execução manual, disparo das
@@ -211,6 +214,82 @@ As versões utilizadas no desenvolvimento estão fixadas no arquivo
 As dependências dos testes de API são gerenciadas pelo Maven através do
 arquivo `tests/api/pom.xml` e são baixadas automaticamente durante a
 primeira execução.
+
+## Execução com Docker
+
+<div align="right">
+  <sup><a href="#sumário">🏠 Voltar ao topo</a></sup>
+</div>
+
+O projeto também pode ser executado em um ambiente Docker, concentrando em um único container todas as dependências necessárias para a solução:
+
+- Python e Streamlit;
+- Node.js;
+- Playwright e Chromium;
+- Java 21;
+- Maven e REST Assured.
+
+A configuração utiliza um único container para preservar a arquitetura da aplicação Streamlit, que também atua como ponto de acionamento das automações de interface e API.
+
+### Subindo o ambiente
+
+Com o Docker em execução, utilize o Docker Compose a partir da raiz do projeto:
+
+```bash
+docker compose -f config/docker/compose.yaml up --build
+```
+
+Após a inicialização, a aplicação estará disponível em:
+
+```text
+http://localhost:8501
+```
+
+Os relatórios HTML gerados pelas automações são disponibilizados através de um servidor HTTP auxiliar:
+
+```text
+Playwright:
+http://localhost:8502/playwright-report/index.html
+
+Cucumber:
+http://localhost:8502/cucumber-report/index.html
+```
+
+Os próprios botões disponíveis na aplicação Streamlit também utilizam esses endereços para acesso aos relatórios.
+
+### Persistência
+
+A configuração Docker preserva os dados relevantes entre recriações do container:
+
+```text
+reports/            → relatórios gerados pelas automações
+data/execucoes.csv  → estado das execuções manuais
+/root/.m2           → cache das dependências Maven
+```
+
+Os diretórios `reports/` e o arquivo `data/execucoes.csv` são montados diretamente a partir do projeto local.
+
+O cache do Maven é mantido em um volume Docker nomeado, evitando o download completo das dependências a cada nova criação do container.
+
+### Encerrando o ambiente
+
+Para interromper e remover o container:
+
+```bash
+docker compose -f config/docker/compose.yaml down
+```
+
+O comando não remove o volume utilizado pelo cache Maven.
+
+### Configuração da URL dos relatórios
+
+Por padrão, a aplicação utiliza:
+
+```text
+REPORTS_BASE_URL=http://localhost:8502
+```
+
+A variável `REPORTS_BASE_URL` pode ser sobrescrita no ambiente de execução quando o container estiver hospedado em outro servidor ou domínio, sem necessidade de alterar o código da aplicação.
 
 ## Execução
 

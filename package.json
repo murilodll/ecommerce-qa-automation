@@ -1,13 +1,18 @@
 {
-	"name": "e-commerce",
+	"name": "ecommerce-qa-automation",
 	"version": "1.0.0",
-	"main": "index.js",
+	"private": true,
+	"author": "Murilo de Lavor Lacerda",
+	"license": "MIT",
+	"description": "End-to-end QA automation project with Playwright BDD, REST Assured API tests, manual test management and a Streamlit dashboard.",
 	"directories": {
-		"doc": "docs",
-		"test": "tests",
 		"config": "config",
-		"utils": "utils",
-		"data": "data"
+		"data": "data",
+		"docs": "docs",
+		"reports": "reports",
+		"src": "src",
+		"tests": "tests",
+		"utils": "utils"
 	},
 	"type": "module",
 	"scripts": {
@@ -19,10 +24,17 @@
 		"playwright-ui": "npx playwright test --ui -c config/playwright.config.ts",
 		"playwright-debug": "npx playwright test --debug -c config/playwright.config.ts"
 	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"description": "",
+	"keywords": [
+		"qa",
+		"test-automation",
+		"playwright",
+		"playwright-bdd",
+		"rest-assured",
+		"api-testing",
+		"gherkin",
+		"streamlit",
+		"e2e-testing"
+	],
 	"devDependencies": {
 		"@playwright/test": "^1.63.0",
 		"@types/node": "^26.6.4",
