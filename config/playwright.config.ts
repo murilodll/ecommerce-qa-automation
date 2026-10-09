@@ -35,11 +35,11 @@ export default defineConfig({
 	outputDir: resolve(rootDir, 'reports/test-results'), // Relatórios
 
 	use: {
-		trace: 'on-first-retry',
+		trace: 'retain-on-failure',
 		headless: true,
 		baseURL: dados.BASE_URL,
 		screenshot: 'only-on-failure',
-		//video: 'on',
+		video: 'on',
 		locale: 'pt-BR',
 		launchOptions: {
 			slowMo: 400,

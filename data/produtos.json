@@ -1,0 +1,44 @@
+{
+	"PRODUTOS": [
+		{
+			"ID": "P001",
+			"Nome": "Camiseta Essencial",
+			"Preco": 59.9
+		},
+		{
+			"ID": "P002",
+			"Nome": "Calça Jeans Slim",
+			"Preco": 139.9
+		},
+		{
+			"ID": "P003",
+			"Nome": "Tênis Casual Urbano",
+			"Preco": 189.9
+		},
+		{
+			"ID": "P004",
+			"Nome": "Boné Aba Curva",
+			"Preco": 49.9
+		},
+		{
+			"ID": "P005",
+			"Nome": "Mochila Urbana 20L",
+			"Preco": 100.0
+		},
+		{
+			"ID": "P006",
+			"Nome": "Kit 3 Pares de Meias",
+			"Preco": 29.9
+		},
+		{
+			"ID": "P007",
+			"Nome": "Jaqueta Corta-Vento",
+			"Preco": 229.9
+		},
+		{
+			"ID": "P008",
+			"Nome": "Garrafa Térmica 750ml",
+			"Preco": 50.0
+		}
+	]
+}

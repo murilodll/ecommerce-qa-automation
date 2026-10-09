@@ -1,4 +1,0 @@
-{
-	"cucumber.features": ["tests/ui/features/**/*.feature"],
-	"cucumber.glue": ["tests/ui/steps/**/*.ts"]
-}

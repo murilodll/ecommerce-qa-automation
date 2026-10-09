@@ -12,10 +12,12 @@
 	"type": "module",
 	"scripts": {
 		"test": "npx bddgen -c config/playwright.config.ts && npx playwright test -c config/playwright.config.ts",
-		"pwr": "npx playwright show-report reports/playwright-report",
-		"ccr": " npx playwright show-report reports/cucumber-report",
-		"pw-ui": "npx playwright test --ui -c config/playwright.config.ts",
-		"pw-debug": "npx playwright test --debug -c config/playwright.config.ts"
+		"test:api": "mvn test -f tests/api/pom.xml",
+		"test:api:known-bugs": "mvn test -f tests/api/pom.xml -Pknown-bugs",
+		"playwright-report": "npx playwright show-report reports/playwright-report",
+		"cucumber-report": "npx playwright show-report reports/cucumber-report",
+		"playwright-ui": "npx playwright test --ui -c config/playwright.config.ts",
+		"playwright-debug": "npx playwright test --debug -c config/playwright.config.ts"
 	},
 	"keywords": [],
 	"author": "",
@@ -24,9 +26,7 @@
 	"devDependencies": {
 		"@playwright/test": "^1.63.0",
 		"@types/node": "^26.6.4",
-		"playwright-bdd": "^9.2.1"
-	},
-	"dependencies": {
+		"playwright-bdd": "^9.2.1",
 		"typescript": "^7.0.2"
 	}
 }

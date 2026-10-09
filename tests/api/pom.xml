@@ -13,6 +13,8 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <maven.surefire.version>3.5.4</maven.surefire.version>
     </properties>
 
     <dependencies>
@@ -45,7 +47,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.5.4</version>
+                <version>${maven.surefire.version}</version>
             </plugin>
         </plugins>
     </build>
@@ -62,7 +64,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.5.4</version>
+                        <version>${maven.surefire.version}</version>
 
                         <configuration>
                             <excludedGroups>known-bug</excludedGroups>

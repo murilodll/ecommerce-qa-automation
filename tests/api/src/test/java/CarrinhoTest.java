@@ -340,8 +340,6 @@ class CarrinhoTest {
         .when()
         .post(DadosConfig.get("API_PEDIDOS"))
         .then()
-
-        .log().all()
         .statusCode(201)
         .body("cliente.cep", equalTo("01310100"));
   }

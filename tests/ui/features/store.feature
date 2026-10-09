@@ -10,7 +10,7 @@ Contexto:
 
 # ================================================================================================================= #
 
-@CA10 @ignore
+@CA10
 Esquema do Cenário: Impedir adição de produtos acima do limite máximo na Store
   Dado que possuo <quantidade> unidades de "<produto>" no carrinho
   Então deve ser exibida a mensagem "<mensagem_store>" para o produto "<produto>" na store

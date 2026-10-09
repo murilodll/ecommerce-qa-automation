@@ -11,7 +11,7 @@ Contexto:
 
 # ================================================================================================================= #
 
-@CA01 @ignore
+@CA01
 Esquema do Cenário: Aplicar cupom válido de 10% de desconto
   Dado que possuo 1 unidade de "<produto>" no carrinho
   E acesso o carrinho
@@ -29,7 +29,7 @@ Esquema do Cenário: Aplicar cupom válido de 10% de desconto
 
 # ================================================================================================================= #
 
-@CA02 @ignore
+@CA02
 Esquema do Cenário: Aplicar cupom ignorando maiúsculas, minúsculas e espaços
   Dado que possuo 1 unidade de "<produto>" no carrinho
   E acesso o carrinho
@@ -45,7 +45,7 @@ Esquema do Cenário: Aplicar cupom ignorando maiúsculas, minúsculas e espaços
 
 # ================================================================================================================= #
 
-@CA03 @ignore
+@CA03
 Esquema do Cenário: Aplicar um cupom inexistente
   Dado que possuo 1 unidade de "<produto>" no carrinho
   E acesso o carrinho
@@ -60,7 +60,7 @@ Exemplos:
 
 # ================================================================================================================= #
 
-@CA04 @ignore
+@CA04
 Esquema do Cenário: Aplicar um cupom expirado
   Dado que possuo 1 unidade de "<produto>" no carrinho
   E acesso o carrinho
@@ -75,7 +75,7 @@ Exemplos:
 
 # ================================================================================================================= #
 
-@CA05 @ignore
+@CA05
 Esquema do Cenário: Trocar o cupom aplicado no carrinho
   Dado que possuo 1 unidade de "<produto>" no carrinho
   E acesso o carrinho
@@ -92,7 +92,7 @@ Exemplos:
 
 # ================================================================================================================= #
 
-@CA06 @ignore
+@CA06
   Esquema do Cenário: Aplicar frete grátis para compras a partir de R$ 200,00
     Dado que possuo <quantidade> unidades de "<produto>" no carrinho
     E acesso o carrinho
@@ -107,7 +107,7 @@ Exemplos:
 
 # ================================================================================================================= #
 
-@CA07 @ignore
+@CA07
 Esquema do Cenário: Cobrar frete para compras abaixo de R$ 200,00
   Dado que possuo <quantidade> unidades de "<produto>" no carrinho
   E acesso o carrinho
@@ -125,7 +125,7 @@ Esquema do Cenário: Cobrar frete para compras abaixo de R$ 200,00
 
 # Utilizados dois produtos para evitar que o BUG-001 no limite de R$ 200,00 interfira na validação deste critério.
 # Após correção do bug pode ser retirado o segundo produto e validar apenas com um produto. Os passos de acessar o site e adicionar o segundo produto podem ser removidos.
-@CA08 @ignore
+@CA08
 Esquema do Cenário: Manter frete grátis quando o desconto reduz o valor abaixo de R$ 200,00
   Dado que possuo <quantidade> unidades de "<produto>" no carrinho
   E que possuo <quantidade2> unidades de "<produto2>" no carrinho
@@ -142,7 +142,7 @@ Esquema do Cenário: Manter frete grátis quando o desconto reduz o valor abaixo
 
 # ================================================================================================================= #
 
-@CA09 @ignore
+@CA09
 Esquema do Cenário: Aplicar desconto somente sobre o subtotal dos produtos
   Dado que possuo <quantidade> unidades de "<produto>" no carrinho
   E acesso o carrinho
@@ -159,7 +159,7 @@ Esquema do Cenário: Aplicar desconto somente sobre o subtotal dos produtos
 
 # ================================================================================================================= #
 
-@CA10 @ignore
+@CA10
 Esquema do Cenário: Limitar a quantidade máxima de um produto no carrinho
   Dado que possuo <quantidade> unidades de "<produto>" no carrinho
   Quando acesso o carrinho
@@ -176,7 +176,8 @@ Esquema do Cenário: Limitar a quantidade máxima de um produto no carrinho
 # ================================================================================================================= #
 
 
-# A massa fixa disponível não permite provocar um cálculo que gere uma terceira casa decimal
+# A massa disponível permite validar a apresentação e o cálculo com duas casas decimais,
+# embora não permita provocar um valor com uma terceira casa decimal para testar o limite de arredondamento.
 @CA11
 Esquema do Cenário: Exibir valores arredondados com duas casas decimais
   Dado que possuo <quantidade> unidades de "<produto>" no carrinho

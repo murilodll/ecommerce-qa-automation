@@ -1,0 +1,2179 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\Codigos\\ecommerce-qa-automation\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "-c",
+      "config/playwright.config.ts"
+    ],
+    "configFile": "E:\\Codigos\\ecommerce-qa-automation\\config\\playwright.config.ts",
+    "rootDir": "E:/Codigos/ecommerce-qa-automation/config/.features-gen",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/Codigos/ecommerce-qa-automation/reports/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "E:/Codigos/ecommerce-qa-automation/config/.features-gen",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "E:\\Codigos\\ecommerce-qa-automation\\reports\\playwright-results.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "E:\\Codigos\\ecommerce-qa-automation\\reports\\playwright-report",
+          "open": "never"
+        }
+      ],
+      [
+        "E:\\Codigos\\ecommerce-qa-automation\\node_modules\\playwright-bdd\\dist\\reporter\\cucumber\\index.js",
+        {
+          "$type": "html",
+          "outputFile": "E:\\Codigos\\ecommerce-qa-automation\\reports\\cucumber-report\\index.html",
+          "externalAttachments": true
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 6,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "carrinho.feature.spec.js",
+      "file": "carrinho.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Cupom de desconto no carrinho",
+          "file": "carrinho.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Aplicar cupom válido de 10% de desconto",
+              "file": "carrinho.feature.spec.js",
+              "line": 10,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Exemplos: #1",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA01"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 4121,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidade de \"Mochila Urbana 20L\" no carrinho",
+                              "duration": 522
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 448
+                            },
+                            {
+                              "title": "E o subtotal do carrinho é de R$ \"100,00\"",
+                              "duration": 22
+                            },
+                            {
+                              "title": "Quando aplico o cupom \"BEMVINDO10\"",
+                              "duration": 903
+                            },
+                            {
+                              "title": "Então o desconto deve ser de R$ \"10,00\"",
+                              "duration": 6
+                            },
+                            {
+                              "title": "E o frete deve ser de R$ \"19,90\"",
+                              "duration": 6
+                            },
+                            {
+                              "title": "E o total do pedido deve ser de R$ \"109,90\"",
+                              "duration": 6
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:23:09.450Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--1641b-e-10-de-desconto-Exemplos-1-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-6d373ab0fc1ebe0ef6af",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 12,
+                  "column": 5
+                },
+                {
+                  "title": "Exemplos: #2",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA01"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2927,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidade de \"Jaqueta Corta-Vento\" no carrinho",
+                              "duration": 466
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 449
+                            },
+                            {
+                              "title": "E o subtotal do carrinho é de R$ \"229,90\"",
+                              "duration": 7
+                            },
+                            {
+                              "title": "Quando aplico o cupom \"BEMVINDO10\"",
+                              "duration": 866
+                            },
+                            {
+                              "title": "Então o desconto deve ser de R$ \"22,99\"",
+                              "duration": 6
+                            },
+                            {
+                              "title": "E o frete deve ser de R$ \"0,00\"",
+                              "duration": 6
+                            },
+                            {
+                              "title": "E o total do pedido deve ser de R$ \"206,91\"",
+                              "duration": 7
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:23:14.572Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--d6282-e-10-de-desconto-Exemplos-2-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-7d0f42459e7c76ac76a6",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 22,
+                  "column": 5
+                },
+                {
+                  "title": "Exemplos: #3",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA01"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2947,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidade de \"Tênis Casual Urbano\" no carrinho",
+                              "duration": 468
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 436
+                            },
+                            {
+                              "title": "E o subtotal do carrinho é de R$ \"189,90\"",
+                              "duration": 7
+                            },
+                            {
+                              "title": "Quando aplico o cupom \"BEMVINDO10\"",
+                              "duration": 866
+                            },
+                            {
+                              "title": "Então o desconto deve ser de R$ \"18,99\"",
+                              "duration": 7
+                            },
+                            {
+                              "title": "E o frete deve ser de R$ \"19,90\"",
+                              "duration": 7
+                            },
+                            {
+                              "title": "E o total do pedido deve ser de R$ \"190,81\"",
+                              "duration": 6
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:23:17.516Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--f0b2c-e-10-de-desconto-Exemplos-3-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-2faca33672b5fff187d9",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 32,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Aplicar cupom ignorando maiúsculas, minúsculas e espaços",
+              "file": "carrinho.feature.spec.js",
+              "line": 44,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Exemplos: #1",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA02"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2971,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidade de \"Mochila Urbana 20L\" no carrinho",
+                              "duration": 480
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 435
+                            },
+                            {
+                              "title": "Quando aplico o cupom \"bemvindo10\"",
+                              "duration": 869
+                            },
+                            {
+                              "title": "Então o cupom \"bemvindo10\" deve ser aplicado com sucesso",
+                              "duration": 9
+                            },
+                            {
+                              "title": "E o desconto deve ser de R$ \"10,00\"",
+                              "duration": 7
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:23:20.479Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--daa65-sculas-e-espaços-Exemplos-1-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-7dee5c1ed8a5266a116e",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 46,
+                  "column": 5
+                },
+                {
+                  "title": "Exemplos: #2",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA02"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2936,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidade de \"Mochila Urbana 20L\" no carrinho",
+                              "duration": 483
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 451
+                            },
+                            {
+                              "title": "Quando aplico o cupom \"BEMvindo10\"",
+                              "duration": 882
+                            },
+                            {
+                              "title": "Então o cupom \"BEMvindo10\" deve ser aplicado com sucesso",
+                              "duration": 8
+                            },
+                            {
+                              "title": "E o desconto deve ser de R$ \"10,00\"",
+                              "duration": 6
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:23:23.467Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--9debf-sculas-e-espaços-Exemplos-2-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-a1943ab8ff48a2ed8d08",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 54,
+                  "column": 5
+                },
+                {
+                  "title": "Exemplos: #3",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA02"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2960,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidade de \"Mochila Urbana 20L\" no carrinho",
+                              "duration": 461
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 451
+                            },
+                            {
+                              "title": "Quando aplico o cupom \"BEMVINDO10\"",
+                              "duration": 854
+                            },
+                            {
+                              "title": "Então o cupom \"BEMVINDO10\" deve ser aplicado com sucesso",
+                              "duration": 6
+                            },
+                            {
+                              "title": "E o desconto deve ser de R$ \"10,00\"",
+                              "duration": 6
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:23:26.420Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--ac487-sculas-e-espaços-Exemplos-3-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-ef327227fcc0c7c1c631",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 62,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Aplicar um cupom inexistente",
+              "file": "carrinho.feature.spec.js",
+              "line": 72,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Exemplos: #1",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA03"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2921,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidade de \"Mochila Urbana 20L\" no carrinho",
+                              "duration": 464
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 450
+                            },
+                            {
+                              "title": "Quando aplico o cupom \"CUPOMINVALIDO\"",
+                              "duration": 855
+                            },
+                            {
+                              "title": "Então deve ser exibida a mensagem \"Cupom inválido.\"",
+                              "duration": 7
+                            },
+                            {
+                              "title": "E nenhum desconto deve ser aplicado",
+                              "duration": 6
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:23:29.397Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--5a74f-upom-inexistente-Exemplos-1-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-ed02f0fe9de5ca11d3ac",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 74,
+                  "column": 5
+                },
+                {
+                  "title": "Exemplos: #2",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA03"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2872,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidade de \"Jaqueta Corta-Vento\" no carrinho",
+                              "duration": 461
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 433
+                            },
+                            {
+                              "title": "Quando aplico o cupom \"CUPOMINVALIDO\"",
+                              "duration": 852
+                            },
+                            {
+                              "title": "Então deve ser exibida a mensagem \"Cupom inválido.\"",
+                              "duration": 6
+                            },
+                            {
+                              "title": "E nenhum desconto deve ser aplicado",
+                              "duration": 6
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:23:32.333Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--608fe-upom-inexistente-Exemplos-2-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-e0b48a71441e47f36f59",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 82,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Aplicar um cupom expirado",
+              "file": "carrinho.feature.spec.js",
+              "line": 92,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Exemplos: #1",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA04"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2868,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidade de \"Mochila Urbana 20L\" no carrinho",
+                              "duration": 466
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 432
+                            },
+                            {
+                              "title": "Quando aplico o cupom \"VERAO2026\"",
+                              "duration": 845
+                            },
+                            {
+                              "title": "Então deve ser exibida a mensagem \"Cupom expirado.\"",
+                              "duration": 8
+                            },
+                            {
+                              "title": "E nenhum desconto deve ser aplicado",
+                              "duration": 6
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:23:35.220Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--70b39-m-cupom-expirado-Exemplos-1-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-8ba0934c4ccac90b2958",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 94,
+                  "column": 5
+                },
+                {
+                  "title": "Exemplos: #2",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA04"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 3116,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidade de \"Jaqueta Corta-Vento\" no carrinho",
+                              "duration": 463
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 436
+                            },
+                            {
+                              "title": "Quando aplico o cupom \"VERAO2026\"",
+                              "duration": 850
+                            },
+                            {
+                              "title": "Então deve ser exibida a mensagem \"Cupom expirado.\"",
+                              "duration": 222
+                            },
+                            {
+                              "title": "E nenhum desconto deve ser aplicado",
+                              "duration": 7
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:23:38.101Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--4e7d7-m-cupom-expirado-Exemplos-2-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-63144e3e3e80083aecf2",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 102,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Trocar o cupom aplicado no carrinho",
+              "file": "carrinho.feature.spec.js",
+              "line": 112,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Exemplos: #1",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA05"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 4224,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidade de \"Mochila Urbana 20L\" no carrinho",
+                              "duration": 466
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 435
+                            },
+                            {
+                              "title": "E aplico o cupom \"BEMVINDO10\"",
+                              "duration": 854
+                            },
+                            {
+                              "title": "Quando removo o cupom aplicado",
+                              "duration": 436
+                            },
+                            {
+                              "title": "E aplico o cupom \"VERAO2026\"",
+                              "duration": 855
+                            },
+                            {
+                              "title": "Então deve ser exibida a mensagem \"Cupom expirado.\"",
+                              "duration": 7
+                            },
+                            {
+                              "title": "E nenhum desconto deve ser aplicado",
+                              "duration": 6
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:23:41.233Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--58289-cado-no-carrinho-Exemplos-1-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-95a11902cb81e5449ae0",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 114,
+                  "column": 5
+                },
+                {
+                  "title": "Exemplos: #2",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA05"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 4206,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidade de \"Jaqueta Corta-Vento\" no carrinho",
+                              "duration": 463
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 450
+                            },
+                            {
+                              "title": "E aplico o cupom \"BEMVINDO10\"",
+                              "duration": 856
+                            },
+                            {
+                              "title": "Quando removo o cupom aplicado",
+                              "duration": 432
+                            },
+                            {
+                              "title": "E aplico o cupom \"VERAO2026\"",
+                              "duration": 853
+                            },
+                            {
+                              "title": "Então deve ser exibida a mensagem \"Cupom expirado.\"",
+                              "duration": 7
+                            },
+                            {
+                              "title": "E nenhum desconto deve ser aplicado",
+                              "duration": 7
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:23:45.472Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--7d09b-cado-no-carrinho-Exemplos-2-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-e0cbdb1cbc7145e524cb",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 124,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Aplicar frete grátis para compras a partir de R$ 200,00",
+              "file": "carrinho.feature.spec.js",
+              "line": 136,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Exemplos: #1",
+                  "ok": false,
+                  "tags": [
+                    "carrinho",
+                    "CA06"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 7744,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-valor=\"frete\"]')\nExpected: \u001b[32m\"Grátis\"\u001b[39m\nReceived: \u001b[31m\"R$ 19,90\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('[data-valor=\"frete\"]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-valor=\"frete\"]')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-valor=\"frete\">R$ 19,90</dd>\u001b[22m\n\u001b[2m       - unexpected value \"R$ 19,90\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-valor=\"frete\"]')\nExpected: \u001b[32m\"Grátis\"\u001b[39m\nReceived: \u001b[31m\"R$ 19,90\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('[data-valor=\"frete\"]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-valor=\"frete\"]')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-valor=\"frete\">R$ 19,90</dd>\u001b[22m\n\u001b[2m       - unexpected value \"R$ 19,90\"\u001b[22m\n\n    at Object.<anonymous> (E:\\Codigos\\ecommerce-qa-automation\\tests\\ui\\steps\\carrinho.steps.ts:50:43)\n    at E:\\Codigos\\ecommerce-qa-automation\\config\\.features-gen\\carrinho.feature.spec.js:142:7",
+                            "location": {
+                              "file": "E:\\Codigos\\ecommerce-qa-automation\\tests\\ui\\steps\\carrinho.steps.ts",
+                              "column": 43,
+                              "line": 50
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\..\\tests\\ui\\steps\\carrinho.steps.ts:50\n\n\u001b[0m \u001b[90m 48 |\u001b[39m\n \u001b[90m 49 |\u001b[39m \t\u001b[36mif\u001b[39m (frete \u001b[33m===\u001b[39m \u001b[32m'0,00'\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 50 |\u001b[39m \t\t\u001b[36mawait\u001b[39m expect(carrinhoPage\u001b[33m.\u001b[39mobterFrete())\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Grátis'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m \t\t                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 51 |\u001b[39m \t} \u001b[36melse\u001b[39m {\n \u001b[90m 52 |\u001b[39m \t\t\u001b[36mawait\u001b[39m expect(carrinhoPage\u001b[33m.\u001b[39mobterFrete())\u001b[33m.\u001b[39mtoHaveText(\u001b[32m`R$ ${frete}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 53 |\u001b[39m \t}\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "E:\\Codigos\\ecommerce-qa-automation\\tests\\ui\\steps\\carrinho.steps.ts",
+                                "column": 43,
+                                "line": 50
+                              },
+                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-valor=\"frete\"]')\nExpected: \u001b[32m\"Grátis\"\u001b[39m\nReceived: \u001b[31m\"R$ 19,90\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('[data-valor=\"frete\"]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-valor=\"frete\"]')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-valor=\"frete\">R$ 19,90</dd>\u001b[22m\n\u001b[2m       - unexpected value \"R$ 19,90\"\u001b[22m\n\n\n   at ..\\..\\tests\\ui\\steps\\carrinho.steps.ts:50\n\n  48 |\n  49 | \tif (frete === '0,00') {\n> 50 | \t\tawait expect(carrinhoPage.obterFrete()).toHaveText('Grátis');\n     | \t\t                                        ^\n  51 | \t} else {\n  52 | \t\tawait expect(carrinhoPage.obterFrete()).toHaveText(`R$ ${frete}`);\n  53 | \t}\n    at Object.<anonymous> (E:\\Codigos\\ecommerce-qa-automation\\tests\\ui\\steps\\carrinho.steps.ts:50:43)\n    at E:\\Codigos\\ecommerce-qa-automation\\config\\.features-gen\\carrinho.feature.spec.js:142:7"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 2 unidades de \"Mochila Urbana 20L\" no carrinho",
+                              "duration": 917
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 436
+                            },
+                            {
+                              "title": "Então o subtotal do carrinho deve ser de R$ \"200,00\"",
+                              "duration": 7
+                            },
+                            {
+                              "title": "E o frete deve ser de R$ \"0,00\"",
+                              "duration": 5013,
+                              "error": {
+                                "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-valor=\"frete\"]')\nExpected: \u001b[32m\"Grátis\"\u001b[39m\nReceived: \u001b[31m\"R$ 19,90\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('[data-valor=\"frete\"]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-valor=\"frete\"]')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-valor=\"frete\">R$ 19,90</dd>\u001b[22m\n\u001b[2m       - unexpected value \"R$ 19,90\"\u001b[22m\n",
+                                "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-valor=\"frete\"]')\nExpected: \u001b[32m\"Grátis\"\u001b[39m\nReceived: \u001b[31m\"R$ 19,90\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('[data-valor=\"frete\"]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-valor=\"frete\"]')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-valor=\"frete\">R$ 19,90</dd>\u001b[22m\n\u001b[2m       - unexpected value \"R$ 19,90\"\u001b[22m\n\n    at Object.<anonymous> (E:\\Codigos\\ecommerce-qa-automation\\tests\\ui\\steps\\carrinho.steps.ts:50:43)\n    at E:\\Codigos\\ecommerce-qa-automation\\config\\.features-gen\\carrinho.feature.spec.js:142:7",
+                                "location": {
+                                  "file": "E:\\Codigos\\ecommerce-qa-automation\\tests\\ui\\steps\\carrinho.steps.ts",
+                                  "column": 43,
+                                  "line": 50
+                                },
+                                "snippet": "\u001b[90m   at \u001b[39m..\\..\\tests\\ui\\steps\\carrinho.steps.ts:50\n\n\u001b[0m \u001b[90m 48 |\u001b[39m\n \u001b[90m 49 |\u001b[39m \t\u001b[36mif\u001b[39m (frete \u001b[33m===\u001b[39m \u001b[32m'0,00'\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 50 |\u001b[39m \t\t\u001b[36mawait\u001b[39m expect(carrinhoPage\u001b[33m.\u001b[39mobterFrete())\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Grátis'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m \t\t                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 51 |\u001b[39m \t} \u001b[36melse\u001b[39m {\n \u001b[90m 52 |\u001b[39m \t\t\u001b[36mawait\u001b[39m expect(carrinhoPage\u001b[33m.\u001b[39mobterFrete())\u001b[33m.\u001b[39mtoHaveText(\u001b[32m`R$ ${frete}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 53 |\u001b[39m \t}\u001b[0m"
+                              }
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:23:49.692Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--a3414-rtir-de-R-200-00-Exemplos-1-chromium\\test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--a3414-rtir-de-R-200-00-Exemplos-1-chromium\\video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--a3414-rtir-de-R-200-00-Exemplos-1-chromium\\error-context.md"
+                            },
+                            {
+                              "name": "trace",
+                              "contentType": "application/zip",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--a3414-rtir-de-R-200-00-Exemplos-1-chromium\\trace.zip"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "E:\\Codigos\\ecommerce-qa-automation\\tests\\ui\\steps\\carrinho.steps.ts",
+                            "column": 43,
+                            "line": 50
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-6c204cd67e8bca7352ad",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 138,
+                  "column": 5
+                },
+                {
+                  "title": "Exemplos: #2",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA06"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2140,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidades de \"Jaqueta Corta-Vento\" no carrinho",
+                              "duration": 475
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 434
+                            },
+                            {
+                              "title": "Então o subtotal do carrinho deve ser de R$ \"229,90\"",
+                              "duration": 16
+                            },
+                            {
+                              "title": "E o frete deve ser de R$ \"0,00\"",
+                              "duration": 6
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:23:58.564Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--2a31a-rtir-de-R-200-00-Exemplos-2-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-4e9444d23fa1981c8586",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 145,
+                  "column": 5
+                },
+                {
+                  "title": "Exemplos: #3",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA06"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2033,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidades de \"Mochila Urbana 20L\" no carrinho",
+                              "duration": 463
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 434
+                            },
+                            {
+                              "title": "Então o subtotal do carrinho deve ser de R$ \"100,00\"",
+                              "duration": 8
+                            },
+                            {
+                              "title": "E o frete deve ser de R$ \"19,90\"",
+                              "duration": 6
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:24:00.897Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--674dd-rtir-de-R-200-00-Exemplos-3-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-635056957e4459be264a",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 152,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Cobrar frete para compras abaixo de R$ 200,00",
+              "file": "carrinho.feature.spec.js",
+              "line": 161,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Exemplos: #1",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA07"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2052,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidades de \"Mochila Urbana 20L\" no carrinho",
+                              "duration": 468
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 433
+                            },
+                            {
+                              "title": "Então o subtotal do carrinho deve ser de R$ \"100,00\"",
+                              "duration": 7
+                            },
+                            {
+                              "title": "E o frete deve ser de R$ \"19,90\"",
+                              "duration": 5
+                            },
+                            {
+                              "title": "E deve ser informado que faltam R$ \"100,00\" para obter frete grátis",
+                              "duration": 6
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:24:02.944Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--b6275-aixo-de-R-200-00-Exemplos-1-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-ab3d0be6af741fac2d6f",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 163,
+                  "column": 5
+                },
+                {
+                  "title": "Exemplos: #2",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA07"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2097,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidades de \"Tênis Casual Urbano\" no carrinho",
+                              "duration": 466
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 448
+                            },
+                            {
+                              "title": "Então o subtotal do carrinho deve ser de R$ \"189,90\"",
+                              "duration": 7
+                            },
+                            {
+                              "title": "E o frete deve ser de R$ \"19,90\"",
+                              "duration": 6
+                            },
+                            {
+                              "title": "E deve ser informado que faltam R$ \"10,10\" para obter frete grátis",
+                              "duration": 7
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:24:05.011Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--9d642-aixo-de-R-200-00-Exemplos-2-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-75d1b1dfbffdaa2da420",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 171,
+                  "column": 5
+                },
+                {
+                  "title": "Exemplos: #3",
+                  "ok": false,
+                  "tags": [
+                    "carrinho",
+                    "CA07"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 2,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 7705,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-valor=\"frete\"]')\nExpected: \u001b[32m\"Grátis\"\u001b[39m\nReceived: \u001b[31m\"R$ 19,90\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('[data-valor=\"frete\"]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-valor=\"frete\"]')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-valor=\"frete\">R$ 19,90</dd>\u001b[22m\n\u001b[2m       - unexpected value \"R$ 19,90\"\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-valor=\"frete\"]')\nExpected: \u001b[32m\"Grátis\"\u001b[39m\nReceived: \u001b[31m\"R$ 19,90\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('[data-valor=\"frete\"]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-valor=\"frete\"]')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-valor=\"frete\">R$ 19,90</dd>\u001b[22m\n\u001b[2m       - unexpected value \"R$ 19,90\"\u001b[22m\n\n    at Object.<anonymous> (E:\\Codigos\\ecommerce-qa-automation\\tests\\ui\\steps\\carrinho.steps.ts:50:43)\n    at E:\\Codigos\\ecommerce-qa-automation\\config\\.features-gen\\carrinho.feature.spec.js:183:7",
+                            "location": {
+                              "file": "E:\\Codigos\\ecommerce-qa-automation\\tests\\ui\\steps\\carrinho.steps.ts",
+                              "column": 43,
+                              "line": 50
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\..\\tests\\ui\\steps\\carrinho.steps.ts:50\n\n\u001b[0m \u001b[90m 48 |\u001b[39m\n \u001b[90m 49 |\u001b[39m \t\u001b[36mif\u001b[39m (frete \u001b[33m===\u001b[39m \u001b[32m'0,00'\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 50 |\u001b[39m \t\t\u001b[36mawait\u001b[39m expect(carrinhoPage\u001b[33m.\u001b[39mobterFrete())\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Grátis'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m \t\t                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 51 |\u001b[39m \t} \u001b[36melse\u001b[39m {\n \u001b[90m 52 |\u001b[39m \t\t\u001b[36mawait\u001b[39m expect(carrinhoPage\u001b[33m.\u001b[39mobterFrete())\u001b[33m.\u001b[39mtoHaveText(\u001b[32m`R$ ${frete}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 53 |\u001b[39m \t}\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "E:\\Codigos\\ecommerce-qa-automation\\tests\\ui\\steps\\carrinho.steps.ts",
+                                "column": 43,
+                                "line": 50
+                              },
+                              "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-valor=\"frete\"]')\nExpected: \u001b[32m\"Grátis\"\u001b[39m\nReceived: \u001b[31m\"R$ 19,90\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('[data-valor=\"frete\"]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-valor=\"frete\"]')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-valor=\"frete\">R$ 19,90</dd>\u001b[22m\n\u001b[2m       - unexpected value \"R$ 19,90\"\u001b[22m\n\n\n   at ..\\..\\tests\\ui\\steps\\carrinho.steps.ts:50\n\n  48 |\n  49 | \tif (frete === '0,00') {\n> 50 | \t\tawait expect(carrinhoPage.obterFrete()).toHaveText('Grátis');\n     | \t\t                                        ^\n  51 | \t} else {\n  52 | \t\tawait expect(carrinhoPage.obterFrete()).toHaveText(`R$ ${frete}`);\n  53 | \t}\n    at Object.<anonymous> (E:\\Codigos\\ecommerce-qa-automation\\tests\\ui\\steps\\carrinho.steps.ts:50:43)\n    at E:\\Codigos\\ecommerce-qa-automation\\config\\.features-gen\\carrinho.feature.spec.js:183:7"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 2 unidades de \"Mochila Urbana 20L\" no carrinho",
+                              "duration": 896
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 436
+                            },
+                            {
+                              "title": "Então o subtotal do carrinho deve ser de R$ \"200,00\"",
+                              "duration": 7
+                            },
+                            {
+                              "title": "E o frete deve ser de R$ \"0,00\"",
+                              "duration": 5022,
+                              "error": {
+                                "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-valor=\"frete\"]')\nExpected: \u001b[32m\"Grátis\"\u001b[39m\nReceived: \u001b[31m\"R$ 19,90\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('[data-valor=\"frete\"]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-valor=\"frete\"]')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-valor=\"frete\">R$ 19,90</dd>\u001b[22m\n\u001b[2m       - unexpected value \"R$ 19,90\"\u001b[22m\n",
+                                "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('[data-valor=\"frete\"]')\nExpected: \u001b[32m\"Grátis\"\u001b[39m\nReceived: \u001b[31m\"R$ 19,90\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" locator('[data-valor=\"frete\"]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-valor=\"frete\"]')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-valor=\"frete\">R$ 19,90</dd>\u001b[22m\n\u001b[2m       - unexpected value \"R$ 19,90\"\u001b[22m\n\n    at Object.<anonymous> (E:\\Codigos\\ecommerce-qa-automation\\tests\\ui\\steps\\carrinho.steps.ts:50:43)\n    at E:\\Codigos\\ecommerce-qa-automation\\config\\.features-gen\\carrinho.feature.spec.js:183:7",
+                                "location": {
+                                  "file": "E:\\Codigos\\ecommerce-qa-automation\\tests\\ui\\steps\\carrinho.steps.ts",
+                                  "column": 43,
+                                  "line": 50
+                                },
+                                "snippet": "\u001b[90m   at \u001b[39m..\\..\\tests\\ui\\steps\\carrinho.steps.ts:50\n\n\u001b[0m \u001b[90m 48 |\u001b[39m\n \u001b[90m 49 |\u001b[39m \t\u001b[36mif\u001b[39m (frete \u001b[33m===\u001b[39m \u001b[32m'0,00'\u001b[39m) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 50 |\u001b[39m \t\t\u001b[36mawait\u001b[39m expect(carrinhoPage\u001b[33m.\u001b[39mobterFrete())\u001b[33m.\u001b[39mtoHaveText(\u001b[32m'Grátis'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m \t\t                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 51 |\u001b[39m \t} \u001b[36melse\u001b[39m {\n \u001b[90m 52 |\u001b[39m \t\t\u001b[36mawait\u001b[39m expect(carrinhoPage\u001b[33m.\u001b[39mobterFrete())\u001b[33m.\u001b[39mtoHaveText(\u001b[32m`R$ ${frete}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 53 |\u001b[39m \t}\u001b[0m"
+                              }
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:24:07.122Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "screenshot",
+                              "contentType": "image/png",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--e1c58-aixo-de-R-200-00-Exemplos-3-chromium\\test-failed-1.png"
+                            },
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--e1c58-aixo-de-R-200-00-Exemplos-3-chromium\\video.webm"
+                            },
+                            {
+                              "name": "error-context",
+                              "contentType": "text/markdown",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--e1c58-aixo-de-R-200-00-Exemplos-3-chromium\\error-context.md"
+                            },
+                            {
+                              "name": "trace",
+                              "contentType": "application/zip",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--e1c58-aixo-de-R-200-00-Exemplos-3-chromium\\trace.zip"
+                            }
+                          ],
+                          "errorLocation": {
+                            "file": "E:\\Codigos\\ecommerce-qa-automation\\tests\\ui\\steps\\carrinho.steps.ts",
+                            "column": 43,
+                            "line": 50
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-4f3f3e446e379607ce00",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 179,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Manter frete grátis quando o desconto reduz o valor abaixo de R$ 200,00",
+              "file": "carrinho.feature.spec.js",
+              "line": 189,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Exemplos: #1",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA08"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 4833,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 3 unidades de \"Boné Aba Curva\" no carrinho",
+                              "duration": 1378
+                            },
+                            {
+                              "title": "E que possuo 2 unidades de \"Kit 3 Pares de Meias\" no carrinho",
+                              "duration": 884
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 449
+                            },
+                            {
+                              "title": "E o subtotal do carrinho é de R$ \"209,50\"",
+                              "duration": 14
+                            },
+                            {
+                              "title": "Quando aplico o cupom \"BEMVINDO10\"",
+                              "duration": 851
+                            },
+                            {
+                              "title": "Então o desconto deve ser de R$ \"20,95\"",
+                              "duration": 7
+                            },
+                            {
+                              "title": "E o frete deve ser de R$ \"0,00\"",
+                              "duration": 6
+                            },
+                            {
+                              "title": "E o total do pedido deve ser de R$ \"188,55\"",
+                              "duration": 5
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:24:15.824Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--07612-aixo-de-R-200-00-Exemplos-1-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-90ba574f7726f6728af0",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 191,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Aplicar desconto somente sobre o subtotal dos produtos",
+              "file": "carrinho.feature.spec.js",
+              "line": 204,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Exemplos: #1",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA09"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2934,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidades de \"Mochila Urbana 20L\" no carrinho",
+                              "duration": 467
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 451
+                            },
+                            {
+                              "title": "E o subtotal do carrinho é de R$ \"100,00\"",
+                              "duration": 8
+                            },
+                            {
+                              "title": "Quando aplico o cupom \"BEMVINDO10\"",
+                              "duration": 866
+                            },
+                            {
+                              "title": "Então o desconto deve ser de R$ \"10,00\"",
+                              "duration": 6
+                            },
+                            {
+                              "title": "E o frete deve ser de R$ \"19,90\"",
+                              "duration": 6
+                            },
+                            {
+                              "title": "E o total do pedido deve ser de R$ \"109,90\"",
+                              "duration": 6
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:24:20.860Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--325f8-tal-dos-produtos-Exemplos-1-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-d4cb5a3f6286764b20fb",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 206,
+                  "column": 5
+                },
+                {
+                  "title": "Exemplos: #2",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA09"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2883,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidades de \"Tênis Casual Urbano\" no carrinho",
+                              "duration": 461
+                            },
+                            {
+                              "title": "E acesso o carrinho",
+                              "duration": 434
+                            },
+                            {
+                              "title": "E o subtotal do carrinho é de R$ \"189,90\"",
+                              "duration": 7
+                            },
+                            {
+                              "title": "Quando aplico o cupom \"BEMVINDO10\"",
+                              "duration": 863
+                            },
+                            {
+                              "title": "Então o desconto deve ser de R$ \"18,99\"",
+                              "duration": 5
+                            },
+                            {
+                              "title": "E o frete deve ser de R$ \"19,90\"",
+                              "duration": 6
+                            },
+                            {
+                              "title": "E o total do pedido deve ser de R$ \"190,81\"",
+                              "duration": 6
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:24:23.814Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--5933e-tal-dos-produtos-Exemplos-2-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-861d892cece813a4be26",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 216,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Limitar a quantidade máxima de um produto no carrinho",
+              "file": "carrinho.feature.spec.js",
+              "line": 228,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Exemplos: #1",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA10"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 3824,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 5 unidades de \"Mochila Urbana 20L\" no carrinho",
+                              "duration": 2210
+                            },
+                            {
+                              "title": "Quando acesso o carrinho",
+                              "duration": 435
+                            },
+                            {
+                              "title": "Então a quantidade do produto \"Mochila Urbana 20L\" deve ser \"5\"",
+                              "duration": 10
+                            },
+                            {
+                              "title": "E deve ser exibida a mensagem de limite \"Limite de 5 unidades por produto.\" para o produto \"Mochila Urbana 20L\"",
+                              "duration": 9
+                            },
+                            {
+                              "title": "E o botão de aumentar a quantidade do produto \"Mochila Urbana 20L\" deve estar desabilitado",
+                              "duration": 8
+                            },
+                            {
+                              "title": "E o subtotal do carrinho deve ser de R$ \"500,00\"",
+                              "duration": 8
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:24:26.716Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--eb553-duto-no-carrinho-Exemplos-1-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-61fde28023d6cb2522da",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 230,
+                  "column": 5
+                },
+                {
+                  "title": "Exemplos: #2",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA10"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 3792,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 5 unidades de \"Tênis Casual Urbano\" no carrinho",
+                              "duration": 2189
+                            },
+                            {
+                              "title": "Quando acesso o carrinho",
+                              "duration": 451
+                            },
+                            {
+                              "title": "Então a quantidade do produto \"Tênis Casual Urbano\" deve ser \"5\"",
+                              "duration": 7
+                            },
+                            {
+                              "title": "E deve ser exibida a mensagem de limite \"Limite de 5 unidades por produto.\" para o produto \"Tênis Casual Urbano\"",
+                              "duration": 6
+                            },
+                            {
+                              "title": "E o botão de aumentar a quantidade do produto \"Tênis Casual Urbano\" deve estar desabilitado",
+                              "duration": 7
+                            },
+                            {
+                              "title": "E o subtotal do carrinho deve ser de R$ \"949,50\"",
+                              "duration": 6
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:24:30.556Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--8cc6e-duto-no-carrinho-Exemplos-2-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-af043ffc74914c01b439",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 239,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Exibir valores arredondados com duas casas decimais",
+              "file": "carrinho.feature.spec.js",
+              "line": 250,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Exemplos: #1",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA11"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2936,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidades de \"Camiseta Essencial\" no carrinho",
+                              "duration": 464
+                            },
+                            {
+                              "title": "Quando acesso o carrinho",
+                              "duration": 439
+                            },
+                            {
+                              "title": "Quando aplico o cupom \"BEMVINDO10\"",
+                              "duration": 855
+                            },
+                            {
+                              "title": "Então o subtotal do carrinho deve ser de R$ \"59,90\"",
+                              "duration": 7
+                            },
+                            {
+                              "title": "E o desconto deve ser de R$ \"5,99\"",
+                              "duration": 6
+                            },
+                            {
+                              "title": "E o frete deve ser de R$ \"19,90\"",
+                              "duration": 6
+                            },
+                            {
+                              "title": "E o total do pedido deve ser de R$ \"73,81\"",
+                              "duration": 6
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:24:34.366Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--f3590-s-casas-decimais-Exemplos-1-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-8a780582e93a9ba0815d",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 252,
+                  "column": 5
+                },
+                {
+                  "title": "Exemplos: #2",
+                  "ok": true,
+                  "tags": [
+                    "carrinho",
+                    "CA11"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2889,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 1 unidades de \"Tênis Casual Urbano\" no carrinho",
+                              "duration": 464
+                            },
+                            {
+                              "title": "Quando acesso o carrinho",
+                              "duration": 437
+                            },
+                            {
+                              "title": "Quando aplico o cupom \"BEMVINDO10\"",
+                              "duration": 853
+                            },
+                            {
+                              "title": "Então o subtotal do carrinho deve ser de R$ \"189,90\"",
+                              "duration": 6
+                            },
+                            {
+                              "title": "E o desconto deve ser de R$ \"18,99\"",
+                              "duration": 5
+                            },
+                            {
+                              "title": "E o frete deve ser de R$ \"19,90\"",
+                              "duration": 6
+                            },
+                            {
+                              "title": "E o total do pedido deve ser de R$ \"190,81\"",
+                              "duration": 5
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:24:37.319Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\carrinho.feature-Cupom-de--32955-s-casas-decimais-Exemplos-2-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "d3a0683ea90032b4ac20-f91610cd7bb9819e211d",
+                  "file": "carrinho.feature.spec.js",
+                  "line": 262,
+                  "column": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "store.feature.spec.js",
+      "file": "store.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Adicionar itens ao carrinho",
+          "file": "store.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Impedir adição de produtos acima do limite máximo na Store",
+              "file": "store.feature.spec.js",
+              "line": 10,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Exemplos: #1",
+                  "ok": true,
+                  "tags": [
+                    "store",
+                    "CA10"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 4945,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 5 unidades de \"Mochila Urbana 20L\" no carrinho",
+                              "duration": 2260
+                            },
+                            {
+                              "title": "Então deve ser exibida a mensagem \"Limite de 5 unidades atingido.\" para o produto \"Mochila Urbana 20L\" na store",
+                              "duration": 16
+                            },
+                            {
+                              "title": "E o botão de adicionar o produto \"Mochila Urbana 20L\" deve estar desabilitado",
+                              "duration": 8
+                            },
+                            {
+                              "title": "Quando acesso o carrinho",
+                              "duration": 433
+                            },
+                            {
+                              "title": "Então a quantidade do produto \"Mochila Urbana 20L\" deve ser \"5\"",
+                              "duration": 9
+                            },
+                            {
+                              "title": "E deve ser exibida a mensagem de limite \"Limite de 5 unidades por produto.\" para o produto \"Mochila Urbana 20L\"",
+                              "duration": 7
+                            },
+                            {
+                              "title": "E o botão de aumentar a quantidade do produto \"Mochila Urbana 20L\" deve estar desabilitado",
+                              "duration": 7
+                            },
+                            {
+                              "title": "E o subtotal do carrinho deve ser de R$ \"500,00\"",
+                              "duration": 7
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:23:09.463Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\store.feature-Adicionar-it-1f0d8--máximo-na-Store-Exemplos-1-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "23bb013a06cc22942d85-77ed741eea932388f3e2",
+                  "file": "store.feature.spec.js",
+                  "line": 12,
+                  "column": 5
+                },
+                {
+                  "title": "Exemplos: #2",
+                  "ok": true,
+                  "tags": [
+                    "store",
+                    "CA10"
+                  ],
+                  "tests": [
+                    {
+                      "timeout": 180000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "passed",
+                          "duration": 3814,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "steps": [
+                            {
+                              "title": "Dado que possuo 5 unidades de \"Tênis Casual Urbano\" no carrinho",
+                              "duration": 2192
+                            },
+                            {
+                              "title": "Então deve ser exibida a mensagem \"Limite de 5 unidades atingido.\" para o produto \"Tênis Casual Urbano\" na store",
+                              "duration": 9
+                            },
+                            {
+                              "title": "E o botão de adicionar o produto \"Tênis Casual Urbano\" deve estar desabilitado",
+                              "duration": 9
+                            },
+                            {
+                              "title": "Quando acesso o carrinho",
+                              "duration": 451
+                            },
+                            {
+                              "title": "Então a quantidade do produto \"Tênis Casual Urbano\" deve ser \"5\"",
+                              "duration": 7
+                            },
+                            {
+                              "title": "E deve ser exibida a mensagem de limite \"Limite de 5 unidades por produto.\" para o produto \"Tênis Casual Urbano\"",
+                              "duration": 7
+                            },
+                            {
+                              "title": "E o botão de aumentar a quantidade do produto \"Tênis Casual Urbano\" deve estar desabilitado",
+                              "duration": 6
+                            },
+                            {
+                              "title": "E o subtotal do carrinho deve ser de R$ \"949,50\"",
+                              "duration": 6
+                            }
+                          ],
+                          "startTime": "2026-10-09T01:23:15.396Z",
+                          "annotations": [],
+                          "attachments": [
+                            {
+                              "name": "video",
+                              "contentType": "video/webm",
+                              "path": "E:\\Codigos\\ecommerce-qa-automation\\reports\\test-results\\store.feature-Adicionar-it-64286--máximo-na-Store-Exemplos-2-chromium\\video.webm"
+                            }
+                          ]
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "23bb013a06cc22942d85-44fbc3b96d2b46b1db30",
+                  "file": "store.feature.spec.js",
+                  "line": 23,
+                  "column": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-09T01:23:08.194Z",
+    "duration": 92196.632,
+    "expected": 25,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

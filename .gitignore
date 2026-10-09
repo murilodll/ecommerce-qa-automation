@@ -1,45 +1,72 @@
-# Dependências
+# ============================================================
+# Node / npm
+# ============================================================
 node_modules/
-
-# Relatórios e artefatos de testes
-reports/
-test-results/
-playwright-report/
-blob-report/
-
-# Arquivos gerados pelo playwright-bdd
-.features-gen/
-
-# Variáveis de ambiente
-.env
-.env.*
-!.env.example
-
-# Build
-dist/
-build/
-*.tsbuildinfo
-src/__pycache__/
-**/target/
-
-# Logs
-*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
 
+# ============================================================
+# Playwright / BDD - arquivos temporários
+# ============================================================
+test-results/
+blob-report/
+config/.features-gen/
+
+# Os relatórios finais em reports/ são versionados propositalmente.
+
+# ============================================================
+# Maven / Java
+# ============================================================
+**/target/
+*.class
+
+# Arquivos temporários gerados pelo Maven Surefire
+*.dump
+*.dumpstream
+
+# ============================================================
+# Python
+# ============================================================
+**/__pycache__/
+*.py[cod]
+*.pyo
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+
+# Cache / ferramentas Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ============================================================
+# IDEs / Editores
+# ============================================================
+.vscode/
+.idea/
+*.iml
+
+# ============================================================
 # Sistema operacional
+# ============================================================
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# IDEs
-.idea/
-
-# VS Code
-.vscode/*
-
-# Temporários
+# ============================================================
+# Arquivos temporários
+# ============================================================
 *.tmp
 *.temp
+*.log
+*~
+
+# ============================================================
+# Variáveis de ambiente / segredos
+# ============================================================
+.env
+.env.*
+!.env.example
