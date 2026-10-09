@@ -13,7 +13,12 @@ test-results/
 blob-report/
 config/.features-gen/
 
-# Os relatórios finais em reports/ são versionados propositalmente.
+# ============================================================
+# Reports - Playwright / Cucumber / REST Assured
+# ============================================================
+
+# Os relatórios finais em reports/ foram versionados propositalmente uma única vez para salvar o report de execução.
+reports/
 
 # ============================================================
 # Maven / Java

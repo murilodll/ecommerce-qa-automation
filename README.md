@@ -124,7 +124,7 @@ permaneça independente dos defeitos já identificados.
 
 ```text
 
-e-commerce/
+ecommerce-qa-automation/
 ├── config/
 │ └── playwright.config.ts
 ├── data/
@@ -177,8 +177,8 @@ instalado:
 Clone o repositório e acesse a pasta do projeto:
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
-cd e-commerce
+git clone https://github.com/murilodll/ecommerce-qa-automation.git
+cd ecommerce-qa-automation
 ```
 
 ### Dependências da automação de interface
