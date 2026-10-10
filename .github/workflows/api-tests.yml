@@ -3,7 +3,11 @@ name: API Tests
 on:
   push:
     branches:
-      - ci-api
+      - main
+
+  pull_request:
+    branches:
+      - main
 
   workflow_dispatch:
 
