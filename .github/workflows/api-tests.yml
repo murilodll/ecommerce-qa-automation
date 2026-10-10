@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - ci-api-known-bugs
 
   pull_request:
     branches:
