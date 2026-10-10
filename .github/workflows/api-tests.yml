@@ -1,0 +1,41 @@
+name: API Tests
+
+on:
+  push:
+    branches:
+      - ci-api
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  api-regression:
+    name: REST Assured - Regression
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+          cache-dependency-path: tests/api/pom.xml
+
+      - name: Run API regression tests
+        run: mvn --batch-mode --no-transfer-progress -f tests/api/pom.xml test
+
+      - name: Upload API test reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: api-test-reports
+          path: reports/api/
+          if-no-files-found: warn
+          retention-days: 7
