@@ -1,10 +1,6 @@
 name: CD - AWS
 
 on:
-  push:
-    branches:
-      - cd-aws
-
   workflow_dispatch:
 
 env:
