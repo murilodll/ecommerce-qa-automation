@@ -1,6 +1,6 @@
 services:
   qa:
-    image: ecommerce-qa-automation:latest
+    image: ${QA_IMAGE:-ecommerce-qa-automation:latest}
 
     build:
       context: ../..

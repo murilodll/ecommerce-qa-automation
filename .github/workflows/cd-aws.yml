@@ -1,0 +1,162 @@
+name: CD - AWS
+
+on:
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-and-push:
+    name: Build and Publish Docker Image
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v4
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: config/docker/Dockerfile
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    name: Deploy to AWS EC2
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: build-and-push
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Deploy with AWS Systems Manager
+        shell: bash
+        env:
+          REPORTS_BASE_URL: ${{ vars.REPORTS_BASE_URL }}
+        run: |
+          DEPLOY_SCRIPT=$(cat <<EOF
+          set -eu
+
+          cd /home/ubuntu/ecommerce-qa-automation
+
+          echo "Updating deployment configuration..."
+          sudo -u ubuntu git fetch origin --prune
+          sudo -u ubuntu git show "${GITHUB_SHA}:config/docker/compose.yaml" > config/docker/compose.yaml
+
+          export QA_IMAGE="${REGISTRY}/${IMAGE_NAME}:${GITHUB_SHA}"
+          export REPORTS_BASE_URL="${REPORTS_BASE_URL}"
+
+          echo "Deploying image:"
+          echo "\$QA_IMAGE"
+
+          docker compose -f config/docker/compose.yaml pull
+
+          docker compose -f config/docker/compose.yaml up \
+            -d \
+            --no-build
+
+          CONTAINER_ID=\$(docker compose \
+            -f config/docker/compose.yaml \
+            ps -q qa)
+
+          if [ -z "\$CONTAINER_ID" ]; then
+            echo "Container qa was not created."
+            exit 1
+          fi
+
+          echo "Waiting for container healthcheck..."
+
+          for ATTEMPT in \$(seq 1 12); do
+            STATUS=\$(docker inspect \
+              --format='{{if .State.Health}}{{.State.Health.Status}}{{else}}{{.State.Status}}{{end}}' \
+              "\$CONTAINER_ID")
+
+            echo "Health status: \$STATUS"
+
+            if [ "\$STATUS" = "healthy" ]; then
+              echo "Deployment completed successfully."
+
+              docker inspect \
+                --format='Running image: {{.Config.Image}}' \
+                "\$CONTAINER_ID"
+
+              exit 0
+            fi
+
+            if [ "\$STATUS" = "unhealthy" ]; then
+              echo "Container became unhealthy."
+              docker logs --tail 100 "\$CONTAINER_ID"
+              exit 1
+            fi
+
+            sleep 5
+          done
+
+          echo "Healthcheck timeout."
+          docker logs --tail 100 "\$CONTAINER_ID"
+          exit 1
+          EOF
+          )
+
+          PARAMETERS=$(jq -n \
+            --arg script "$DEPLOY_SCRIPT" \
+            '{commands: [$script]}')
+
+          COMMAND_ID=$(aws ssm send-command \
+            --instance-ids "${{ vars.EC2_INSTANCE_ID }}" \
+            --document-name "AWS-RunShellScript" \
+            --parameters "$PARAMETERS" \
+            --query "Command.CommandId" \
+            --output text)
+
+          echo "SSM Command ID: $COMMAND_ID"
+
+          if ! aws ssm wait command-executed \
+            --command-id "$COMMAND_ID" \
+            --instance-id "${{ vars.EC2_INSTANCE_ID }}"; then
+
+            echo "Deployment failed. SSM output:"
+
+            aws ssm get-command-invocation \
+              --command-id "$COMMAND_ID" \
+              --instance-id "${{ vars.EC2_INSTANCE_ID }}" \
+              --query '{Status:Status,Output:StandardOutputContent,Error:StandardErrorContent}'
+
+            exit 1
+          fi
+
+          aws ssm get-command-invocation \
+            --command-id "$COMMAND_ID" \
+            --instance-id "${{ vars.EC2_INSTANCE_ID }}" \
+            --query '{Status:Status,Output:StandardOutputContent,Error:StandardErrorContent}'
